@@ -1,0 +1,21 @@
+{
+  "name": "intive-challenge",
+  "version": "1.0.0",
+  "description": "Intive challenge of a Random User API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "API",
+    "JS",
+    "RandomUser",
+    "Master/DetailFlow"
+  ],
+  "author": "Tomas Ausino Palau",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^13.0.1",
+    "jquery": "^3.6.0"
+  }
+}
