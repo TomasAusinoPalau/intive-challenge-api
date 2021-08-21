@@ -23,6 +23,8 @@ const userGenerator = () => {
 }
 
 const generateUser = (index) => {
+    
+    
 
     // user data
     const user = dataRandomUsers[index];
@@ -44,7 +46,7 @@ const generateUser = (index) => {
 
 
 
-    // user data manipulation and styles
+    // user elements manipulation and styles
     userNameElement.innerHTML = `${title} ${first} ${last}`;
     userLocationElement.innerHTML = `${city}, ${state}`;
     userThumbnailElement.src = `${thumbnail}`;
@@ -54,7 +56,9 @@ const generateUser = (index) => {
 
 
     // user-container manipulation and styles
-    userElement.onclick = (event) => {console.log(event.target)/*function to manipulate user and view details*/};
+
+
+    userElement.onclick = (event) => {handleClick(event.target.parentElement)};
     userElement.classList.add('user-container');
 
 
@@ -72,6 +76,26 @@ const generateUser = (index) => {
     userElement.appendChild(userLocationElement);
 
     parentElement.appendChild(userElement);
+
+}
+
+const handleClick = (event) => {
+    const userSelected = event
+
+    // user details to display
+
+    const userDetailsElement = document.createElement('div')
+    const userCardElement = userSelected.cloneNode(true);
+
+
+
+    userDetailsElement.classList.add('user-details-container');
+    userDetailsElement.append(userCardElement)
+    
+
+
+
+    document.querySelector('.detail-container').appendChild(userDetailsElement)
 
 }
 
