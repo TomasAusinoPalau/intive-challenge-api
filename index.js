@@ -32,14 +32,15 @@ const generateUser = (index) => {
     const {city, state} = location;
 
     const parentElement = document.querySelector('.main-container');
-    const userElement = document.createElement('div');
-    const userPictureContainer = document.createElement('picture');
+    const userElement = elementCreator('div');
+    const userPictureContainer = elementCreator('picture');
     
     
     // user elements to append
-    const userNameElement = document.createElement('p');
-    const userLocationElement = document.createElement('p');
-    const userThumbnailElement = document.createElement('img');
+    const userNameElement = elementCreator('p')
+    const userLocationElement = elementCreator('p');
+    const userThumbnailElement = elementCreator('img');
+    const userSeparatorElement = elementCreator('hr');
 
 
 
@@ -55,10 +56,11 @@ const generateUser = (index) => {
 
     // user-container manipulation and styles
 
-    userElement.onclick = (event) => {handleClick(event.target, index)};
+    userElement.onclick = (event) => {handleUserClick(event.target, index)};
     userElement.classList.add('user-container');
 
     userNameElement.classList.add('user-name');
+    userSeparatorElement.classList.add('user-separator');
 
     userLocationElement.classList.add('user-location');
 
@@ -73,12 +75,13 @@ const generateUser = (index) => {
     userElement.appendChild(userPictureContainer)
     userElement.appendChild(userNameElement);
     userElement.appendChild(userLocationElement);
+    userElement.appendChild(userSeparatorElement);
 
     parentElement.appendChild(userElement);
 
 }
 
-const handleClick = (event, index) => {
+const handleUserClick = (event, index) => {
 
     // handle if click is on thumbnail or text, and select properly the container
     const thumbnailUserClass = 'user-thumbnail';
@@ -98,24 +101,49 @@ const handleClick = (event, index) => {
     // user details to display
     
     const userDetailsElements = userSelectedContainer.cloneNode(true);
-    const userDetailsExit = document.createElement('button');
-    const userPictureContainer = document.createElement('picture');
-    const userImgElement = document.createElement('img');
+    const userPictureContainer = elementCreator('picture');
+    const userImgElement = elementCreator('img');
     userImgElement.src = large;
     
 
     // user details manipulation and styles
-        detailsParent.classList.remove('hidden')
+    detailsParent.classList.remove('hidden')
     userDetailsElements.classList.add('user-details');
-    userDetailsExit.classList.add('user-details-exit');
+
+    // exit button in header
+    renderExitButton()
 
 
     // append elements
     userPictureContainer.appendChild(userImgElement);
-    userDetailsElements.insertBefore(userDetailsExit, userDetailsElements.firstChild);
     userDetailsElements.replaceChild(userPictureContainer, userDetailsElements.querySelector('.user-picture-container'))
     detailsParent.appendChild(userDetailsElements)
+    
+}
+
+
+const renderExitButton = () => {
+    const exitButton = document.querySelector('.exit-button');
+    const exitIcon = document.querySelector('.exit-icon');
+    exitIcon.classList.contains('hidden') ? exitIcon.classList.remove('hidden') : exitIcon.classList.add('hidden');
+    exitButton.classList.contains('hidden') ? exitButton.classList.remove('hidden') : exitButton.classList.add('hidden');
+
+    exitButton.onclick = event => {handleExitButton(event)};
+    
+}
+
+const elementCreator = (element) => {
+    return document.createElement(element);
+}
+
+
+const handleExitButton = (event) => {
+    const detailsParent = document.querySelector('.details-container');
+    detailsParent.classList.add('hidden')
+    detailsParent.innerHTML = ''
+    renderExitButton()
 
 }
+
 
 fetchAPI()

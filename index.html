@@ -5,31 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Random User API</title>
 </head>
 <body>
-      
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button exit-button hidden" aria-label="Close"><span class="material-icons-outlined exit-icon hidden">
+                close
+                </span></button>
+            <span class="mdc-top-app-bar__title"> <h1 class="main-title">Random User API</h1> </span>
+          </section>
+        </div>
+    </header>
     
     <main>
+        <section class="main-section-container">
         
-        <div class="details-container hidden">
 
-        </div>
-
-        <h1 class="main-title">Random User API</h1>
-
-        <div class='main-container'>
+            <div class="details-container hidden">
             
-        </div>
-
+            </div>        
+            <div class='main-container'>
+            
+            </div>
+        </section>
     </main>
-
-
-
+    
+    
+    
     <footer>
-
+        
     </footer>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <script src="node_modules\jquery\dist\jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
