@@ -1,12 +1,10 @@
-
-
 const API_RESULTS_1 = 50;
 let dataRandomUsers = [];
 
 
 const url = `https://randomuser.me/api/?results=${API_RESULTS_1}`;
 
-const fetchApi = async () => {
+const fetchAPI = async () => {
     const response = await fetch(url);
     const data = await response.json();
     dataRandomUsers = data.results;
@@ -30,12 +28,12 @@ const generateUser = (index) => {
     const user = dataRandomUsers[index];
     const { name, picture, location } = user;
     const { title, first, last } = name;
-    const {large, medium, thumbnail} = picture;
+    const {thumbnail} = picture;
     const {city, state} = location;
 
     const parentElement = document.querySelector('.main-container');
     const userElement = document.createElement('div');
-    const userThumbnailContainer = document.createElement('picture');
+    const userPictureContainer = document.createElement('picture');
     
     
     // user elements to append
@@ -57,21 +55,22 @@ const generateUser = (index) => {
 
     // user-container manipulation and styles
 
-
-    userElement.onclick = (event) => {handleClick(event.target.parentElement)};
+    userElement.onclick = (event) => {handleClick(event.target, index)};
     userElement.classList.add('user-container');
 
-
     userNameElement.classList.add('user-name');
+
     userLocationElement.classList.add('user-location');
-    userThumbnailContainer.classList.add('user-thumbnail-container');
+
+    userPictureContainer.classList.add('user-picture-container');
+    userThumbnailElement.classList.add('user-thumbnail')
     
 
 
     // append elements
-    userThumbnailContainer.appendChild(userThumbnailElement)
+    userPictureContainer.appendChild(userThumbnailElement)
 
-    userElement.appendChild(userThumbnailContainer)
+    userElement.appendChild(userPictureContainer)
     userElement.appendChild(userNameElement);
     userElement.appendChild(userLocationElement);
 
@@ -79,24 +78,44 @@ const generateUser = (index) => {
 
 }
 
-const handleClick = (event) => {
-    const userSelected = event
+const handleClick = (event, index) => {
 
-    // user details to display
+    // handle if click is on thumbnail or text, and select properly the container
+    const thumbnailUserClass = 'user-thumbnail';
+    const thumbnailClick = event.parentNode.parentNode
+    const textClick = event.parentNode
+    const userSelectedContainer = (event.className === thumbnailUserClass) ? thumbnailClick : textClick;
+    const userData = dataRandomUsers[index];
+    const detailsParent = document.querySelector('.details-container');
 
-    const userDetailsElement = document.createElement('div')
-    const userCardElement = userSelected.cloneNode(true);
 
+    const { name, picture, location } = userData;
+    const {large} = picture
 
-
-    userDetailsElement.classList.add('user-details-container');
-    userDetailsElement.append(userCardElement)
     
 
+    
+    // user details to display
+    
+    const userDetailsElements = userSelectedContainer.cloneNode(true);
+    const userDetailsExit = document.createElement('button');
+    const userPictureContainer = document.createElement('picture');
+    const userImgElement = document.createElement('img');
+    userImgElement.src = large;
+    
+
+    // user details manipulation and styles
+        detailsParent.classList.remove('hidden')
+    userDetailsElements.classList.add('user-details');
+    userDetailsExit.classList.add('user-details-exit');
 
 
-    document.querySelector('.detail-container').appendChild(userDetailsElement)
+    // append elements
+    userPictureContainer.appendChild(userImgElement);
+    userDetailsElements.insertBefore(userDetailsExit, userDetailsElements.firstChild);
+    userDetailsElements.replaceChild(userPictureContainer, userDetailsElements.querySelector('.user-picture-container'))
+    detailsParent.appendChild(userDetailsElements)
 
 }
 
-fetchApi()
+fetchAPI()

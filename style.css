@@ -42,16 +42,20 @@ table {
 	border-spacing: 0;
 }
 
-
+.main-title {
+    display: flex;
+    align-self: center;
+}
 
 
 .user-container {
+    border: 1px solid #ccc;
     display: grid;
     grid-template-areas: "picture name"
                          "picture location";
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 1fr;
-    margin-bottom: 10px;
+    height: 40%;
     opacity: 1;
 
 
@@ -65,16 +69,45 @@ table {
     grid-area: location;
 }
 
-.user-thumbnail-container {
+.user-picture-container {
     grid-area: picture;
+
+    justify-content: center;
+}
+
+.user-thumbnail{
+    height: 100%;
 }
 
 
-.user-details-container {
+.details-container {
+    
     position: fixed;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: black;
-    opacity: 0.3;
+    background-color: grey;
+
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+.hidden {
+    display: none;
+}
+.user-details {
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-areas: "picture picture"
+                         "name           "
+                         "location       "
+                         "description   ";
+
+    grid-template-rows: 3fr 1fr 1fr 1fr;
+    height: 40%;
+    opacity: 1;
 }
