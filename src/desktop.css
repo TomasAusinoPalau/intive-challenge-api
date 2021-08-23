@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
     background-color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -45,7 +46,15 @@ table {
 
 .main-section-container {
     width: 100%;
-    padding-top: 56px; /* important! in bigger viewport than 600px must be 64px of padding*/
+    padding-top: 64px; /* important! in bigger viewport than 600px must be 64px of padding*/
+    display: grid;
+    grid-template-areas: 'master detail';
+    grid-template-columns: 1fr 3fr;
+    
+}
+
+.main-container {
+    grid-area: "master";
 }
 
 .main-title {
@@ -62,7 +71,9 @@ table {
                          'separator separator';
     grid-template-columns: 1fr 4fr 0.5fr;
     grid-template-rows: 1fr 1fr;
-    height: 40%;
+    column-gap: 1vh;
+    width: 40vw;
+    height: max-content;
     opacity: 1;
 
 
@@ -97,32 +108,39 @@ table {
 }
 
 .details-container {
-    
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: grey;
-
-    z-index: 1;
-    display: flex;
+    display: grid;
+    grid-area: detail;
+    position: static;
     align-items: center;
     justify-content: center;
+    background-color: #f0f0f0;
+    width:max-content;
 }
 
 
 .hidden {
     display: none;
 }
+
 .user-details {
     border: 1px solid #ccc;
     display: grid;
-    grid-template-areas: "picture picture"
-                         "name           "
-                         "location       "
-                         "description   ";
-
+    grid-template-areas: " picture   name"
+                         " picture   location"
+                         " picture   username"
+                         " picture   email";
+                         
+    position: fixed;
     grid-template-rows: 3fr 1fr 1fr 1fr;
     height: 40%;
     opacity: 1;
+}
+
+.user-details .user-username {
+
+    grid-area: username;
+}
+
+.user-details .user-email {
+    grid-area: email;
 }

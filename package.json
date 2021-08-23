@@ -17,5 +17,13 @@
   "dependencies": {
     "http-server": "^13.0.1",
     "jquery": "^3.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomasAusinoPalau/intive-challenge-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TomasAusinoPalau/intive-challenge-api/issues"
+  },
+  "homepage": "https://github.com/TomasAusinoPalau/intive-challenge-api#readme"
 }
