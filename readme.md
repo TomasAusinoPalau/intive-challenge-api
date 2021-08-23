@@ -5,6 +5,11 @@ Using Random User API (randomuser.me) I have to develop a Master/Detail flow wit
 - Users must be provided with small picture, full name, city and country.
 - When you tap on the user on the grid, it shows the detail view with big picture and more details.
 
+## Deploy and instructions
+To see the deploy visit: https://tomasausinopalau.github.io/intive-challenge-api/
+
+To open the webpage locally you can download it, and open it throught the `index.html` file in your favourite browser
+
 ## Solving the challenge
 
 I develop, first of all, the `fetchAPI`, with an asyncronous method. Then, with vanilla JS, I generated an array of users from the API.
