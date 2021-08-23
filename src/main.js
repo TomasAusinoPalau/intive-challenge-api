@@ -81,7 +81,6 @@ const handleUserClick = (event, index) => {
     const userData = dataRandomUsers[index];
     const detailsParent = document.querySelector('.details-container');
     
-    const thumbnailUserClass = 'user-thumbnail';
     const userSelectedContainer = (event.currentTarget);
 
 
