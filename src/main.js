@@ -61,7 +61,7 @@ const generateUser = (index, user) => {
     elementAddClass(userSeparatorElement, 'user-separator')
 
 
-    userElement.onclick = (event) => {handleUserClick(event.target, index)};
+    userElement.onclick = (event) => {handleUserClick(event, index)};
 
     
     
@@ -82,9 +82,7 @@ const handleUserClick = (event, index) => {
     const detailsParent = document.querySelector('.details-container');
     
     const thumbnailUserClass = 'user-thumbnail';
-    const thumbnailClick = event.parentNode.parentNode
-    const textClick = event.parentNode
-    const userSelectedContainer = (event.className === thumbnailUserClass) ? thumbnailClick : textClick;
+    const userSelectedContainer = (event.currentTarget);
 
 
     if(detailsParent.children.length !== 0) {

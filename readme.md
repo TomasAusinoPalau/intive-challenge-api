@@ -27,10 +27,9 @@ Developer features that i used:
 
 I founded few problems that limited myself to keep the code clean and simple.
 
-- I couldn't divide the code in different files, because I didn't know how to modularize the code in different little archives. But i tried to simplify readability with few functions.
+- I couldn't divide the code in different files, because I didn't know how to modularize the code. But i tried to simplify readability with few functions.
 - I could make a infinite scroll, but I find troubles in the API request and the way how I handle the data, so every time I scroll down and call the api for new random users, it overwrite and modify the array `dataRandomUsers` and its original index positions.
-- I cannon't control the `exitButton` class 'hidden', in a way that also allows (if the user is in desktop view) select other user directly from the grid. When that happens, the `exitButton` dissapears. If the user is with the phone rotated (desktop view) and after selected a second user rotates the phone, he cannon't see the exit button, because the `exitButton` is hidden, the user will go back to the grid, but the button is not visible.
-
+- I cannon't control the `exitButton` class 'hidden', in a way that allows (if the user is in desktop view) select other user directly from the grid. When that happens, the `exitButton` dissapears. If the user is with the phone rotated (desktop view) and after selected a second user rotates the phone, he cannon't see the exit button, because the `exitButton` is hidden, the user will go back to the grid, but the button is not visible.+0
 
 ## Final thoughts
 
