@@ -123,6 +123,7 @@ table {
 }
 
 .user-details {
+
     border: 1px solid #ccc;
     display: grid;
     grid-template-areas: " picture   name"
@@ -134,6 +135,7 @@ table {
     grid-template-rows: 3fr 1fr 1fr 1fr;
     height: 40%;
     opacity: 1;
+    align-self: center;
 }
 
 .user-details .user-username {
