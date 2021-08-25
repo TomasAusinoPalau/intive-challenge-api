@@ -1,6 +1,6 @@
 import {userGenerator} from './service/userGenerator/userGenerator.js'
 
-let API_RESULTS_1 = 50;
+const API_RESULTS_1 = 50;
 let dataRandomUsers
 
 
