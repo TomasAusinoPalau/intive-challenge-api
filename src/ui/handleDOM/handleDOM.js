@@ -1,10 +1,5 @@
-export const elementCreator = (element) => {
-    return document.createElement(element);
-}
-
+export const elementCreator = (element) => document.createElement(element);
 
 export function elementAddClass(element, className) {
-    
-    element.classList.add(className);
+  element.classList.add(className);
 }
-

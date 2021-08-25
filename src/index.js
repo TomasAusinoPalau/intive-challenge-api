@@ -1,3 +1,3 @@
-import  {fetchAPI}  from './main.js';
+import { fetchAPI } from './main.js';
 
-fetchAPI()
+fetchAPI();
