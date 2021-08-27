@@ -10,7 +10,7 @@ To see the deploy visit: https://tomasausinopalau.github.io/intive-challenge-api
 
 Open this project folder with Terminal.
 
-Run :point_right: `npm start` to build.
+Run :point_right: `npm run` to build.
 
 
 Then, use `npm run server` and open the link in your browser.
